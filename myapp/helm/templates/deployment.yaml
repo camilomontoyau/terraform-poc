@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}
+    spec:
+      initContainers:
+      - name: npm-script-runner
+        image: node:18
+        command: ['sh', '-c', 'npm i && npm run build']
+        volumeMounts:
+        - name: app-code
+          mountPath: /app
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          command: ['sh', '-c', 'npm run start:prod']
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 3000
+              protocol: TCP
+          volumeMounts:
+            - name: app-code
+              mountPath: /app
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      volumes:
+      - name: app-code
+        emptyDir: {}

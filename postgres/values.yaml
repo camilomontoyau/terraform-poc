@@ -1,0 +1,31 @@
+replicaCount: 1
+
+image:
+  repository: postgres
+  tag: 14
+  pullPolicy: IfNotPresent
+
+service:
+  port: 5432
+  type: ClusterIP
+
+env:
+  POSTGRES_USER: test
+  POSTGRES_PASSWORD: test
+  POSTGRES_DB: test
+
+serviceAccount:
+  create: true
+  name: ""
+
+ingress:
+  enabled: false
+  hosts:
+    - host: chart-example.local
+      paths: []
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80

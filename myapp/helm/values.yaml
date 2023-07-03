@@ -1,0 +1,33 @@
+replicaCount: 1
+
+image:
+  repository: node
+  tag: 18
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 3000
+
+serviceAccount:
+  create: true
+
+autoscaling:
+  enabled: false
+
+ingress:
+  enabled: true
+  annotations: {}
+  hosts:
+    - host: "chart-example.local"
+      paths:
+      - path: /api
+        pathType: ImplementationSpecific
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
