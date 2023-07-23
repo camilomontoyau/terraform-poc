@@ -19,3 +19,24 @@ resource "aws_s3_bucket_acl" "example" {
   bucket = aws_s3_bucket.terraform_backend_bucket.id
   acl    = "private"
 }
+
+resource "aws_kms_key" "my_key" {
+  description             = "This key is used to encrypt the backend bucket"
+  deletion_window_in_days = 10
+  is_enabled              = true
+}
+  
+resource "aws_s3_bucket_server_side_encryption_configuration" "example" {
+  bucket = aws_s3_bucket.terraform_backend_bucket.id
+
+  rule {
+    apply_server_side_encryption_by_default {
+      kms_master_key_id = aws_kms_key.my_key.arn
+      sse_algorithm     = "aws:kms"
+    }
+  }
+}
+
+output "kms_arn" {
+  value = aws_kms_key.my_key.arn
+}

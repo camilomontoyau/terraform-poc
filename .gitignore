@@ -3,3 +3,4 @@ node_modules
 **/terraform.state*
 bucket/terraform.tfstate
 bucket/terraform.tfstate.backup
+bucket/errored.tfstate
