@@ -1,3 +1,5 @@
 node_modules
 **/.terraform
 **/terraform.state*
+bucket/terraform.tfstate
+bucket/terraform.tfstate.backup
