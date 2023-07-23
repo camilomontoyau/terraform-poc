@@ -1,6 +1,6 @@
 # teraform proof of concept
 
-## terraform scripts scripts
+## terraform scripts
 
 plan with dev.tfvars ```terraform plan -var-file=dev.tfvars``` 
 
