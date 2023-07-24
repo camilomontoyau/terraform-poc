@@ -1,7 +1,10 @@
 node_modules
+.DS_Store
 **/.terraform
 **/terraform.state*
-bucket/terraform.tfstate
-bucket/terraform.tfstate.backup
-bucket/errored.tfstate
-.DS_Store
+
+**/.terraform/
+**/terraform.state
+**/terraform.tfstate
+**/terraform.tfstate.backup
+**/errored.tfstate
