@@ -27,8 +27,8 @@ resource "helm_release" "my_postgres" {
   namespace  = "default"
 }
 
-#resource "helm_release" "my_app" {
-#  name       = "my-app"
-#  chart      = "./myapp/helm"
-#  namespace  = "default"
-#}
+resource "helm_release" "my_app" {
+  name       = "my-app"
+  chart      = "./myapp/helm"
+  namespace  = "default"
+}
