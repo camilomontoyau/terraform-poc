@@ -6,7 +6,7 @@ import { UsersModule } from './users/users.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
+      host: 'my-postgres.default.svc.cluster.local',
       port: 5432,
       username: 'test',
       password: 'test',
