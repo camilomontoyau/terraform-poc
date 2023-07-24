@@ -1,4 +1,4 @@
-# teraform proof of concept
+# terraform proof of concept
 
 ## terraform scripts
 
