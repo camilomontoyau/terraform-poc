@@ -15,7 +15,7 @@ spec:
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          command: ['sh', '-c', 'cd /app && npm run start:prod']
+          command: ['sh', '-c', 'cd /app && npm run build && npm run start:prod']
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - containerPort: 3000
