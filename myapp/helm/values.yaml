@@ -6,7 +6,7 @@ image:
   pullPolicy: IfNotPresent
 
 service:
-  type: ClusterIP
+  type: LoadBalancer
   port: 3000
 
 serviceAccount:
@@ -21,7 +21,7 @@ ingress:
   hosts:
     - host: "chart-example.local"
       paths:
-      - path: /api
+      - path: /
         pathType: ImplementationSpecific
 
 resources: {}
