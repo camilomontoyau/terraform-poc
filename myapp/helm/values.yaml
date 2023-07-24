@@ -1,8 +1,8 @@
 replicaCount: 1
 
 image:
-  repository: node
-  tag: 18
+  repository: kerosine/nest-typeorm
+  tag: v1
   pullPolicy: IfNotPresent
 
 service:
