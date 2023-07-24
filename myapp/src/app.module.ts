@@ -8,7 +8,8 @@ import { AppService } from './app.service';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'my-postgres.default.svc.cluster.local',
+      host: 'my-postgres',
+      // host: 'my-postgres.default.svc.cluster.local',
       // host: 'localhost',
       port: 5432,
       username: 'test',
