@@ -23,16 +23,10 @@ spec:
             httpGet:
               path: /health
               port: 3000
-            initialDelaySeconds: 20
-            periodSeconds: 5
-            failureThreshold: 3
           readinessProbe:
             httpGet:
               path: /health
               port: 3000
-              initialDelaySeconds: 20
-            periodSeconds: 5
-            failureThreshold: 3
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       
