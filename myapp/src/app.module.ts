@@ -17,7 +17,7 @@ import { AppService } from './app.service';
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
       retryAttempts: 10,
-      retryDelay: 10000
+      retryDelay: 10000,
     }),
     UsersModule,
   ],
