@@ -4,3 +4,4 @@ node_modules
 bucket/terraform.tfstate
 bucket/terraform.tfstate.backup
 bucket/errored.tfstate
+.DS_Store
