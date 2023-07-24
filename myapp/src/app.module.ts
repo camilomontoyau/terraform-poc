@@ -8,13 +8,16 @@ import { AppService } from './app.service';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
+      host: 'my-postgres.default.svc.cluster.local',
+      // host: 'localhost',
       port: 5432,
       username: 'test',
       password: 'test',
       database: 'test',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
+      retryAttempts: 10,
+      retryDelay: 10000
     }),
     UsersModule,
   ],
