@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: kerosine/nest-typeorm
-  tag: v1
+  tag: v2
   pullPolicy: IfNotPresent
 
 service:
