@@ -19,14 +19,6 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - containerPort: 3000
-          livenessProbe:
-            httpGet:
-              path: /health
-              port: 3000
-          readinessProbe:
-            httpGet:
-              path: /health
-              port: 3000
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       
