@@ -14,3 +14,7 @@ resource "aws_ecr_repository" "my_ecr_repo" {
   }
   tags = var.tags
 }
+
+output "ecr_repo_urls" {
+  value = [for r in values(aws_ecr_repository.my_ecr_repo) : r.repository_url]
+}
